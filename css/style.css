@@ -6,40 +6,84 @@ body {
     height: 100%;
     overflow: hidden;  /* makes the body non-scrollable (we will add scrolling to the sidebar and main content containers) */
     margin: 0px;  /* removes default style */
-    display: flex;  /* enables flex content for its children */
+    /* display: flex;  /* enables flex content for its children */ */
     box-sizing: border-box;
 }
 
-.column {
-    height: 100%;  /* allows both columns to span the full height of the browser window */
-    display: flex;
-    flex-direction: column;  /* places the left and right headers above the bottom content */
+/* The side navigation menu */
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1), 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+  /* background-color: #f1f1f1; */
+  position: fixed;
+  height: 100%;
+  overflow: auto;
 }
 
-#left {
-    flex-shrink: 0;  /* makes sure that content is not cut off in a smaller browser window */
+/* Sidebar links */
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
 }
 
-.top-left {
-    flex-shink: 0;
+/* Active/current link */
+.sidebar a.active {
+  background-color: #04AA6D;
+  color: white;
 }
 
-.top-right {
-    flex-shrink: 0;
-    display: inline-flex;
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
 }
 
-ul {
-    display: inline-flex;
-    list-style: none;
-}
-
-.bottom {
-    flex-grow: 1;  /* ensures that the container will take up the full height of the parent container */
-    overflow-y: auto;  /* adds scroll to this container */
-}
 
 #logo-img {
   width: 50px;
   height: auto;
+}
+
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+div.content {
+  display: flex;
+  flex-direction: column;
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+.portfolio-item {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1), 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+
+  height: 300px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.footer {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
 }
