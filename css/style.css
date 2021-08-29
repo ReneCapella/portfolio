@@ -14,8 +14,8 @@ body {
 .sidebar {
   margin: 0;
   padding: 0;
-  width: 200px;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1), 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+  width: 100px;
+  /* box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1), 0 4px 10px 0 rgba(0, 0, 0, 0.1); */
   /* background-color: #f1f1f1; */
   position: fixed;
   height: 100%;
@@ -52,14 +52,14 @@ body {
 div.content {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   margin-left: 200px;
-  padding: 1px 16px;
+  padding: 1px;
   height: 1000px;
 }
 
 .portfolio-item {
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1), 0 4px 10px 0 rgba(0, 0, 0, 0.1);
-
   height: 300px;
   width: 100%;
   margin-bottom: 10px;
@@ -72,6 +72,7 @@ div.content {
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
 @media screen and (max-width: 700px) {
   .sidebar {
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1), 0 4px 10px 0 rgba(0, 0, 0, 0.1);
     width: 100%;
     height: auto;
     position: relative;
